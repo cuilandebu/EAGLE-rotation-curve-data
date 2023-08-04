@@ -26,7 +26,7 @@ Then, here some things I considered you need to know related to the data.
    c. Publication related to data particle: The EAGLE team (2017) \
       https://arxiv.org/abs/1706.09899 \
    
-I have been extract the rotation curve for 667 galaxies but I only use 207 galaxies. The difference is on morphology of galaxies. I only select rotational supported galaxies. Below is the query command I entered in the database.
+I have been extract the rotation curve for 667 galaxies but I only use 207 galaxies at my final project. The difference is on morphology of galaxies, characterizing by parameter KappaCoRot. I only select rotational supported galaxies with KappaCoRot $\geq$ 0.4. Below is the query command I entered in the database.
 
 SELECT \
      sh.GalaxyID, \
@@ -39,8 +39,8 @@ SELECT \
      recal.KappaCoRot, \
      sh.GroupNumber as GN, \
      sh.SubGroupNumber as SGN, \
-     sh.CentreOfMass_x as cx, \ 
-     sh.CentreOfMass_y as cy, \  
+     sh.CentreOfMass_x as cx, \
+     sh.CentreOfMass_y as cy, \
      sh.CentreOfMass_z as cz, \
      sh.HalfMassRad_Star as Reff_star \
      sh.HalfMassRad_Gas as Reff_gas \
@@ -55,6 +55,6 @@ WHERE \
      and KappaCoRot >= 0.4 \
      and sh.GalaxyID = recal.GalaxyID \
 ORDER BY \
-     m_bary asc \
+     m_bary asc
 
-It obtain 207 rotational supported galaxies. To get another 460 galaxies, change the KappaCoRot >= 0.4 with KappaCoRot < 0.4 and it will result galaxies with morphology pressure supported (Correa, 2017). The parameter GN, SGN, cx, cy, and cz is used to retrieve the rotation curve using the code given in the paper The EAGLE Team (2017).
+It obtain 207 rotational supported galaxies. To get another 460 galaxies, change the KappaCoRot >= 0.4 with KappaCoRot < 0.4 and it will result galaxies with morphology pressure supported (Correa, 2017). The parameter GN, SGN, cx, cy, and cz are used to retrieve the rotation curve using the code given in the paper The EAGLE Team (2017).
