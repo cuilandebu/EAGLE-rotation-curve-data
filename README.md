@@ -24,7 +24,7 @@ Then, here some things I considered you need to know related to the data.
    b. Publication related to database: McAlpine et al (2016) \
       https://arxiv.org/abs/1510.01320 \
    c. Publication related to data particle: The EAGLE team (2017) \
-      https://arxiv.org/abs/1706.09899 \
+      https://arxiv.org/abs/1706.09899 
    
 I have been extract the rotation curve for 667 galaxies but I only use 207 galaxies at my final project. The difference is on morphology of galaxies, characterizing by parameter KappaCoRot. I only select rotational supported galaxies with KappaCoRot $\geq$ 0.4. Below is the query command I entered in the database.
 
