@@ -1,5 +1,7 @@
 # Data archive of rotation curve at redshift 0 from EAGLE simulation
 
+!! This is readme for data. You can read my summary of final project on file name $\textbf{final-project_journal}$ along with this readme located.
+
 The computation in this work has been done using the facilities of MAHAMERU BRIN HPC, National Research and Innovation Agency of Indonesia (BRIN)
 
 I do my final project using EAGLE simulation to study Baryonic Tully-Fisher Relation. I use database and particle data from volume 25 cMpc simulation RecalL0025N0752 at redshift 0 and extract the rotation curve for 667 galaxies relies on particle data. Since the size of particle data is large enough, about 50 GB and computing time to retrieve rotation curve is very long, I decided to save the data and plot of rotation curve that I took in my final project. All data can be accessed through the following link: https://drive.google.com/drive/folders/1WB9Og43qbiOnurZs2B7QB_MaA8MWDJUQ?usp=sharing
