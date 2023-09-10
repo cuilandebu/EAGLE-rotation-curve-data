@@ -1,11 +1,8 @@
-RecalL0025N0752.github.io
 # Data archive of rotation curve at redshift 0 from EAGLE simulation
 
 The computation in this work has been done using the facilities of MAHAMERU BRIN HPC, National Research and Innovation Agency of Indonesia (BRIN)
 
-!! This still in progress !!
-
-I do my final project and using EAGLE simulation to study Baryonic Tully-Fisher Relation. I use database and data particle from volume 25 cMpc simulation RecalL0025N0752 at redshift 0 and extract the rotation curve for 667 galaxies from data particle. Since the size of data particle is large enough, about 50 GB and computing time to retrieve rotation curve is very long, I decided to save the data and plot of rotation curve that I took in my final project. All data can be accessed at the following link: https://drive.google.com/drive/folders/1WB9Og43qbiOnurZs2B7QB_MaA8MWDJUQ?usp=sharing
+I do my final project using EAGLE simulation to study Baryonic Tully-Fisher Relation. I use database and particle data from volume 25 cMpc simulation RecalL0025N0752 at redshift 0 and extract the rotation curve for 667 galaxies relies on particle data. Since the size of particle data is large enough, about 50 GB and computing time to retrieve rotation curve is very long, I decided to save the data and plot of rotation curve that I took in my final project. All data can be accessed through the following link: https://drive.google.com/drive/folders/1WB9Og43qbiOnurZs2B7QB_MaA8MWDJUQ?usp=sharing
 
 The following is a description of the folder in the data link.
 1. Basically, folder RecalL0025N0752 contain two kind folder, data (rotation curve and rotation curve decomposition) and plot (rotation curve, rotation curve decomposition, and interpolation).
