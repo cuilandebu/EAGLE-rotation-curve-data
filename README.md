@@ -1,6 +1,6 @@
 # Data archive of rotation curve at redshift 0 from EAGLE simulation
 
-!! This is readme for data. You can read my summary of final project on file name $\textbf{final-project_journal}$ along with this readme located.
+!! This is readme for data. You can read my summary of final project on file name $\textbf{final-project\_journal}$ along with this readme located !!
 
 The computation in this work has been done using the facilities of MAHAMERU BRIN HPC, National Research and Innovation Agency of Indonesia (BRIN)
 
