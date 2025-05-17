@@ -1,31 +1,43 @@
 # Data archive of rotation curve at redshift 0 from EAGLE simulation
 
-!! This is readme for data. You can read my summary of final project on file name $\textbf{final-project-journal}$ along with this readme located !!
+‼️ This repository contains data related to my undergraduate final project. You can find a summary of my final project in the file named $\textbf{final-project-journal}$, located alongside this README ‼️
 
-The computation in this work has been done using the facilities of MAHAMERU BRIN HPC, National Research and Innovation Agency of Indonesia (BRIN)
+Feel free to explore, reuse, or extend this dataset for your own research. I made it public in the hope that it can be helpful for others working with EAGLE galaxy simulations and rotation curve analysis.
 
-I do my final project using EAGLE simulation to study Baryonic Tully-Fisher Relation. I use database and particle data from volume 25 cMpc simulation RecalL0025N0752 at redshift 0 and extract the rotation curve for 667 galaxies relies on particle data. Since the size of particle data is large enough, about 50 GB and computing time to retrieve rotation curve is very long, I decided to save the data and plot of rotation curve that I took in my final project. All data can be accessed through the following link: https://drive.google.com/drive/folders/1WB9Og43qbiOnurZs2B7QB_MaA8MWDJUQ?usp=sharing
+All computations in this work were carried out using the MAHAMERU High-Performance Computing (HPC) facility provided by the National Research and Innovation Agency of Indonesia (BRIN).
 
-The following is a description of the folder in the data link.
-1. Basically, folder RecalL0025N0752 contain two kind folder, data (rotation curve and rotation curve decomposition) and plot (rotation curve, rotation curve decomposition, and interpolation).
-2. Each folder (except folder interpolation) contains samples of two types of galaxies, pressure and rotational supported. It's distinguished by KappaCoRot (I'll explain below).
-3. In the folder rotcur_plot, there is a folder named "cut" which contains a plot of the rotation curve only up to a radius of 15 kpc.
-4. Folder decomposition_data contains data for each components (star, gas, and dark matter) and so for decomposition_plot contains plot for each components.
-5. Interpolation is performed for galaxies with different baryon mass predominance, to obtain rotation velocity at two effective radii. Hence in the folder interpolation there are plot for two samples of galaxies, dominated by stellar masses and gas masses. Data for effective radii (by querying database) and the result of interpolation also provided.
+# 🛰️ Project Overview
+In my final project, I studied the Baryonic Tully-Fisher Relation using the EAGLE simulation. Specifically, I used data from the RecalL0025N0752 simulation (25 cMpc volume) at redshift 0. From the particle data, I extracted the rotation curves for 667 galaxies. Due to the large size of the particle data (~50 GB) and the long computation time required to extract the curves, I decided to store and share the final data and plots used in my project. \
+🔗 All data and plots can be accessed via this link:
+https://drive.google.com/drive/folders/1WB9Og43qbiOnurZs2B7QB_MaA8MWDJUQ?usp=sharing
 
-Then, here some things I considered you need to know related to the data.
-1. EAGLE Public Data Release can be accessed through this link http://icc.dur.ac.uk/Eagle/database.php and you should register first to access the data. There are two kind of data, database and data particle, both can be accessed through the same link as before.
-2. The database provided properties of simulated galaxies, at any volume and any redshift, which can be retrieved by input a query in the query box.
-3. The data particle should be downloaded before you can use it and as I mention before, the size is large enough. Data particle contains of several snapshots file from one volume at one redshift of simulation. To use this data, we need python code to read each snapshots and we need galaxies properties that we get through the database.
-4. Here some publication that might help and guide you to use EAGLE public data \
+# 📁 Folder Structure
+Inside the RecalL0025N0752 directory, you'll find two main types of folders:
+1. xyz_data/: Contains rotation curve data and rotation curve decomposition.
+2. xyz_plot/: Contains plots of rotation curves, decompositions, and interpolation results.
+
+These include two types of galaxy samples: rotation-supported and pressure-supported, distinguished by the KappaCoRot parameter (explained below).
+
+Details:
+1. rotcur_plot/cut/ includes plots of rotation curves limited to a radius of 15 kpc.
+2. decomposition_data folder contains the data for each component (stars, gas, and dark matter), and decomposition_plot folder contains the plots for each component.
+3. Interpolation is performed for galaxies with different baryonic mass dominance, to obtain the rotation velocity at two effective radii. Hence, in the interpolation folder, there are plots for two samples of galaxies: those dominated by stellar mass and those dominated by gas mass. Data for the effective radii (queried from the database) and the interpolation results are also provided.
+
+# 📘 Notes on EAGLE Data
+Here some things I considered you need to know related to the EAGLE simulation's data.
+1. The EAGLE Public Data Release is available at http://icc.dur.ac.uk/Eagle/database.php and registrasion is required.
+2. There are two kinds of data: the database and the particle data, both accessible through the same link.
+3. The database provides the properties of simulated galaxies at any volume and redshift. These can be retrieved by submitting a query in the query box.
+4. The particle data must be downloaded before use and, as mentioned earlier, is quite large. Particle data consists of several snapshot files from one volume at one redshift in the simulation. To use this data, Python code is required to read each snapshot, and galaxy properties (from the database) are also needed.
+5. Helpful references for working with EAGLE data: \
    a. EAGLE main publication: Schaye et al (2015) \
       https://ui.adsabs.harvard.edu/abs/2015MNRAS.446..521S/abstract \
-   b. Publication related to database: McAlpine et al (2016) \
+   b. Database explanation: McAlpine et al (2016) \
       https://arxiv.org/abs/1510.01320 \
-   c. Publication related to data particle: The EAGLE team (2017) \
+   c. Particle data documentation: The EAGLE team (2017) \
       https://arxiv.org/abs/1706.09899 
    
-I have been extract the rotation curve for 667 galaxies but I only use 207 galaxies at my final project. The difference is on morphology of galaxies, characterizing by parameter KappaCoRot. I only select rotational supported galaxies with KappaCoRot $\geq$ 0.4. Below is the query command I entered in the database.
+I have extracted the rotation curves for 667 galaxies, but I only used 207 galaxies in my final project. The difference is based on galaxy morphology, characterized by the KappaCoRot parameter. I selected only rotation-supported galaxies with KappaCoRot $\geq$ 0.4. Below is the query I used in the database:
 
 SELECT \
      sh.GalaxyID, \
@@ -43,9 +55,11 @@ SELECT \
      sh.CentreOfMass_z as cz, \
      sh.HalfMassRad_Star as Reff_star \
      sh.HalfMassRad_Gas as Reff_gas \
+     
 FROM \
      RecalL0025N0752_Subhalo as sh, \
      RecalL0025N0752_MorphoKinem as recal \
+     
 WHERE \
      sh.Snapnum = 28 \
      and MassType_Star + MassType_Gas >= 3.9705e8 \
@@ -53,7 +67,11 @@ WHERE \
      and sh.MassType_Gas > 0 \
      and KappaCoRot >= 0.4 \
      and sh.GalaxyID = recal.GalaxyID \
+     
 ORDER BY \
      m_bary asc
 
-It obtain 207 rotational supported galaxies. To get another 460 galaxies, change the KappaCoRot >= 0.4 with KappaCoRot < 0.4 and it will result galaxies with morphology pressure supported (Correa, 2017). The parameter GN, SGN, cx, cy, and cz are used to retrieve the rotation curve using the code given in the paper The EAGLE Team (2017).
+This returns 207 rotation-supported galaxies. To get the other 460 galaxies, change the condition from KappaCoRot >= 0.4 with KappaCoRot < 0.4 which will give pressure-supported galaxies (Correa, 2017). \
+The parameter GN, SGN, cx, cy, and cz are used to retrieve the rotation curve using the code provided in the paper The EAGLE Team (2017).
+
+If you have a question or willing to discuss, you can find me on robiahoktiavi@gmail.com
